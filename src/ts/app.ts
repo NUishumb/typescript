@@ -6,27 +6,14 @@ import Smartphone from './domain/Smartphone';
 
 const cart = new Cart();
 
-cart.add(new Book(1001, 'War and Piece', 'Leo Tolstoy', 2000, 1225));
-cart.add(new MusicAlbum(1008, 'Meteora', 'Linkin Park', 900));
+const book1 = new Book(1001, 'War and Piece', 'Leo Tolstoy', 2000, 1225);
+const book2 = new Book(1001, 'World of Starcraft', 'lizzard', 12, 56);
+const book3 = new Book(1001, 'test', 'ttt', 555, 333);
+const book4 = new Book(1001, 'abc', 'asd', 123, 321);
 
-cart.add(
-  new Movie(
-    778,
-    'Avengers',
-    100,
-    2012,
-    ['Sci-Fi', 'Action', 'Adventure'],
-    '2:17',
-    'Avengers Assemble!'
-  )
-);
+cart.add(book1);
+cart.add(book2);
+cart.add(book3);
+cart.add(book4);
 
-cart.add(new Book(1001, 'War and Piece', 'Leo Tolstoy', 2000, 1225));
-cart.add(new Smartphone(448, 'Asus Zenfone', 21500, 2019));
-cart.add(new Smartphone(448, 'Asus Zenfone', 21500, 2019));
-cart.add(new Smartphone(448, 'Asus Zenfone', 21500, 2019));
-cart.add(new Smartphone(448, 'Asus Zenfone', 21500, 2019));
-cart.add(new Smartphone(448, 'Asus Zenfone', 21500, 2019));
-cart.add(new Smartphone(448, 'Asus Zenfone', 21500, 2019));
-
-console.log(cart.sum());
+console.log(cart.items);

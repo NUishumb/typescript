@@ -16,37 +16,19 @@ export default class Cart {
   sum(): number {
     let sum = 0;
     for (let i = 0; i < this._items.length; i += 1) {
-      const keys = Object.keys(this._items[i]);
-      const values = Object.values(this._items[i]);
-      const price = values[keys.indexOf('price')];
-      sum += price;
+      sum += this._items[i].price;
     }
     return sum;
   }
 
   sumWithDiscount(percent: number): number {
-    let sum = 0;
+    let sum = this.sum();
     const discount = percent * 0.01;
-    for (let i = 0; i < this._items.length; i += 1) {
-      const keys = Object.keys(this._items[i]);
-      const values = Object.values(this._items[i]);
-      const price = values[keys.indexOf('price')];
-      sum += price;
-    }
-    sum = sum - sum * discount;
-    return sum;
+    return sum - sum * discount;
   }
 
   delete(id: number): void {
-    for (let i = 0; i < this._items.length; i += 1) {
-      const keys = Object.keys(this._items[i]);
-      const values = Object.values(this._items[i]);
-      const idToDel = values[keys.indexOf('id')];
-      if (id === idToDel) {
-        this._items.splice(i, 1);
-        return;
-      }
-    }
+    this._items = this._items.filter((e) => e.id !== id);
   }
 
   isAddable(item: Buyable): boolean {
