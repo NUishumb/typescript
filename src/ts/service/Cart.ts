@@ -49,7 +49,7 @@ export default class Cart {
     }
   }
 
-  isAddable(item: Buyable) {
+  isAddable(item: Buyable): boolean {
     const uniqueItems = ['Book', 'Movie', 'MusicAlbum'];
     for (let i = 0; i < this._items.length; i += 1) {
       if (
